@@ -6,13 +6,13 @@ var fileName = location.href.split("/").slice(-1);
 const codeName = document.querySelector("div.mail>a>img");
 const secretTxt = document.getElementsByClassName('secrets');
 const double = document.getElementsByClassName('double');
-// var fixedHeight = fixed.clientHeight;
+var shake = 1;
 
 
 
 
 
-//Listens for clicks on nav links
+//Animation handlers
 (function () {
     Array.from(navLnk).forEach(flickCheck);
 }());
@@ -23,13 +23,12 @@ function flickCheck(link) {
     }
 }
 
+//only sets flickOn animation for home page
 function flickOn(e) {
     e.style["animation"] = "flickon 4s linear forwards";
     // e.style["animation-delay"] = "0.5s";
     return;
 }
-
-
 
 function setProperty(duration) {
     flicker[0].style.setProperty('--animation-time', duration + 's');
@@ -44,35 +43,68 @@ function changeAnimationTime() {
     setProperty(animationDuration);
 }
 
-setInterval(changeAnimationTime, 3000);
+setInterval(function(){
+    if(shake === 1 && fileName.indexOf('index.html') !== -1){
+    ticketShake();
+}
+    changeAnimationTime();
+}, 3000);
 
+function ticketShake(){
+    $(".passcode").delay(3000).effect("shake", {direction: "down", times: 3, distance: 20}, 2000);
+}
 
-
-(function () {
-    if (fileName.indexOf("index.html") !== -1) {
-        codeName.addEventListener('click', function () {
-            codePrompt();
-
-        });
-    };
+(function screenFlicker(){
+    // $(".screen>img").effect("pulsate",{ color: $(this).css("white"), times: 5}, 1000, screenFlicker);
+    $(".screen>img").animate({opacity: 0.3}, 30).animate({opacity:0.7}, 30, screenFlicker);
 })();
 
 
+
+
+
+//Secret Code Prompt reveals secret char info on suspects page
+$(document).ready(function(){
+      $(".passcode").click(function(){
+        //dialog box wasn't opening because you didn't ref the JQuery UI src in your html scripts
+        //Need to also ref a link to the JQuery ui css href for the styles
+        $("#dialog").dialog({show: "clip", hide: "clip"});
+
+    });
+
+    $("#dialog>input").keypress(function(e){
+        if (e.keyCode === 13){
+            let charCode = $("#dialog>input").val();
+            charCode = charCode.toLowerCase();
+            window.localStorage.setItem("codePhrase", charCode);
+            $("#dialog").dialog('close');
+            window.location.href = "characters.html";
+        };
+    });
+});
+
+
+
 function codePrompt() {
-    let charCode = prompt("What's the passcode??");
+    let charCode = $("dialog").input.value;
     charCode = charCode.toLowerCase();
     window.localStorage.setItem("codePhrase", charCode);
 }
 
-if (fileName.indexOf("characters3.html") !== -1) {
+//Checks page name, if characters page use stored code to reveal correct char info
+if (fileName.indexOf("characters.html") !== -1) {
     let charCode = window.localStorage.getItem("codePhrase");
     codeword(charCode);
 }
+else {
+    window.localStorage.clear();
+}
 
+// Switch case to compare passcodes and reveal correct character info
 function codeword(passcode) {
     switch (passcode) {
         case "shhh":
-        secretTxt[0].style["display"] = "block";
+            secretTxt[0].style["display"] = "block";
             break;
 
         case "scarlet songbird":
@@ -80,40 +112,12 @@ function codeword(passcode) {
             break;
 
         case "double agent":
-            secretTxt[2].innerText = "-	Youngest of 12 children<br>\
-    -	Took singing and dancing lessons<br>\
-    -	Hopes of becoming a great actress one day and travelling to Europe<br>\
-    -	Very strong connection to family<br>\
-    -	Your real name is Ramona Simpson<br>\
-    -	Farm-Raised<br>\
-    See Profile Below..."
-        double[0].innerText = "Ramona Simpson";
-        double[1].src = "https://via.placeholder.com/150x150";
-        double[2].innerText = "24";
-        double[3].innerText = "Female";
-        double[4].innerText = "Unknown";
-        double[5].innerText = "Seattle, WA";
-        double[6].innerText = "Compulsive Liar, Tenacios, Bold, Vengeful";
-        secretTxt[3].innerText = "-	Only Child<br>\
-    -	Illegitimate daughter of Dolores Simpson and Arthur James McCutcheon (Victim) the timber magnate<br>\
-    -	Your mother and by association you both have a great hatred for Arthur who dumped your mother upon learning she was pregnant with you.<br>\
-    -	You’ve been scheming and working your way to Superior Studios with plans of Arthur J. McCutcheon’s downfall<br>\
-    -	You’ve been purposely having an affair with Matt Montgomery in order to infiltrate your way into Superior Studios and get close to McCutcheon<br>\
-    -	You don’t think Matt suspects the affair is fake, but you don’t really care either";
-        break;
+            secretTxt[2].style["display"] = "block";
+            break;
 
-        defualt:
-        return;
-    }
-}
+            defualt:
+                return;
+    };
+};
 
 
-// (function(){
-//     winW.addEventListener('change', ()=>{
-//         articlePos.style.top = (window.innerWidth);
-//     })
-// })();
-
-// // if (document.documentElement.clientWidth < document.documentElement.clientHeight|| window.innerWidth < window.innerHeight){
-// //     articlePos.style.top = (200 - window.innerWidth/2) + "px";
-//

@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="styles/styleMain.css">
+  <link rel="stylesheet" href="node_modules/jquery/ui/jquery-ui.min.css">
 </head>
 
 <body>
@@ -61,16 +62,19 @@
     </div>
   </article>
 
-  <div class="mail">
-    <a href="characters3.html"><img class="passcode" src="images/bloody-ticket.png" alt=""></a>
+  <div class="ticket">
+    <a href="#"><img class="passcode" src="images/bloody-ticket.png" alt=""></a>
+    <div id="dialog" title="passcode?">
+      <input id="code" type="text">
+    </div>
   </div>
 
-  <div class="eyes"><img src="images/eyes.png" alt=""></div>
-
+  <div class="screen"><img src="images/end screen.jpg" alt=""></div>
+  <div class="seats"></div>
 
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery/ui/jquery-ui.min.js" ></script>
   <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
   </script>
