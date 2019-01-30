@@ -1,23 +1,15 @@
-const forEach = Array.prototype.forEach;
 const flicker = document.getElementsByClassName('flicker');
 const articlePos = document.getElementById('artcl');
 const navLnk = document.getElementsByClassName('navLink');
 var fileName = location.href.split("/").slice(-1);
 const codeName = document.querySelector("div.mail>a>img");
 const secretTxt = document.getElementsByClassName('secrets');
-const double = document.getElementsByClassName('double');
 const screen = document.querySelector("div.screen>img");
 var shake = 1;
 var z = 0;
 
-// (function(){
-//     if(window.innerWidth < 768 ){
-// var h = Math.max(document.documentElement.clientHeight);
-// var w = Math.max(document.documentElement.clientWidth);
-// $("html").css({"width": w, "height": h});
-// $("body").css({"width": w, "height": h});}
-// }());
 
+//Character Class Creation
 function Character(name, age, sex, occ, hTown, chars) {
     this.name = name,
         this.age = age,
@@ -40,7 +32,7 @@ function Character(name, age, sex, occ, hTown, chars) {
 }
 
 
-//Character Creation
+//Character Profile Creation
 var mMontgomery = new Character('Matthew Montgomery', 31, 'Male', 'Actor',
     'Hollywood, Ca', 'Handsome, Sophisticated, Confident, Aloof, Mysterious');
 
@@ -61,38 +53,19 @@ var wAndrews = new Character('Wilbur Andrews', 32, 'Male', 'Inventor',
     'Philadelphia, PA', 'Introverted, Especially shy with women, Thinker');
 
 var iMeyers = new Character('Irma Meyers', 30, 'Female', 'Hairdresser / Actress',
-'Phoenix, AZ', 'Conservative, Creative, Driven, Proud, Self-Sufficient, Possesive');
+    'Phoenix, AZ', 'Conservative, Creative, Driven, Proud, Self-Sufficient, Possesive');
 
 var aChatterly = new Character('Alice Chatterly', 30 + ' (Eternally...)', 'Columnist and Self-Titled Reporter',
-'Burbank, CA', 'Driven, Doesn’t play by the rules, Loves stories and gossip, Flamboyant');
+    'Burbank, CA', 'Driven, Doesn’t play by the rules, Loves stories and gossip, Flamboyant');
 
 var cWilloughby = new Character('Clyde Willoughby', 38, 'Male', 'Adjuster for National Professional Underwriters',
-'New York City, NY', 'Characteristics: able and Gregarious, Extroverted, Numbers Wiz, Careful and Conscientious');
+    'New York City, NY', 'Sociable and Gregarious, Extroverted, Numbers Wiz, Careful and Conscientious');
 
 
-//Animation handlers
-(function () {
-    Array.from(navLnk).forEach(flickCheck);
-}());
-
-function flickCheck(link) {
-    if (link.pathname.indexOf(fileName) !== -1) {
-        flickOn(link);
-    }
-}
-
-//only sets flickOn animation for home page
-function flickOn(e) {
-    e.style["animation"] = "flickon 4s linear forwards";
-    // e.style["animation-delay"] = "0.5s";
-    return;
-}
-
+//Sets random timing for Header Title Letters
 function setProperty(duration) {
     flicker[0].style.setProperty('--animation-time', duration + 's');
     flicker[1].style.setProperty('--animation-time', duration + 5 + 's');
-    // // flicker[2].style.setProperty('--animation-time', duration/2 +  's');
-    // flicker[3].style.setProperty('--animation-time', duration - 2 +  's');
 }
 
 function changeAnimationTime() {
@@ -101,29 +74,33 @@ function changeAnimationTime() {
 }
 
 setInterval(function () {
-    if (shake === 1 && fileName.indexOf('index.html') !== -1) {
-        ticketShake();
-    }
+    // if (shake === 1 && fileName.indexOf('index.html') !== -1) {
+    //     ticketShake();
+    // }
     if (fileName.indexOf("culture.html") !== -1) {
         z++
-    if (z>7){
-        z=0;
-    }
+        if (z > 7) {
+            z = 0;
+        }
         movieSwitch();
     }
     changeAnimationTime();
 }, 3000);
 
-function ticketShake() {
-    $(".passcode").delay(3000).effect("shake", {
-        direction: "down",
-        times: 50,
-        distance: 2
-    }, 700);
-}
+// function ticketShake() {
+//     $("article").on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
+//         $(".passcode").finish(true, true);
+//     });
+
+//     $(".passcode").delay(3000).effect("shake", {
+//         direction: "down",
+//         times: 3,
+//         distance: 5
+//     });
+// };
+
 
 (function screenFlicker() {
-    // $(".screen>img").effect("pulsate",{ color: $(this).css("white"), times: 5}, 1000, screenFlicker);
     $(".screen>img").animate({
         opacity: 0.3
     }, 30).animate({
@@ -132,31 +109,24 @@ function ticketShake() {
 })();
 
 //circles through movie titles in bg on the movies page
-function movieSwitch(){
-    let screenbg = document.querySelector(".screen"); 
-    $(".screen>img").delay(100).fadeIn(200, function(){
-            $(this).attr("src", "images/movie-title" + z + ".jpg")});
+function movieSwitch() {
+    let screenbg = document.querySelector(".screen");
+    $(".screen>img").delay(100).fadeIn(200, function () {
+        $(this).attr("src", "../images/movie-title" + z + ".jpg")
+    });
 };
 
-
-    // screenbg.style["background"] = "url(\"images/countdown.jpg\")";
-    // screenbg.style["background"] = "url(\"images/old\ screen.jpg\")";
-    // screen.setAttribute('src', "images/movie-title" + z + ".jpg");
-
-
-
-
-//Secret Code Prompt reveals secret char info on suspects page
+//Secret Code Prompt on index page when the ticket is clicked
 $(document).ready(function () {
     $(".passcode").click(function () {
-        //dialog box wasn't opening because you didn't ref the JQuery UI src in your html scripts
-        //Need to also ref a link to the JQuery ui css href for the styles
         $("#dialog").dialog({
             show: "clip",
             hide: "clip"
         });
 
     });
+
+    // NEED TO FIX TITLE POSITIONING WHEN SAYING HELLO MR/MRS
 
     //records user input when enter is pressed and redirects you to suspects page
     $("#dialog>input").keypress(function (e) {
@@ -170,15 +140,13 @@ $(document).ready(function () {
     });
 });
 
-
-
 function codePrompt() {
     let charCode = $("dialog").input.value;
     charCode = charCode.toLowerCase();
     window.localStorage.setItem("codePhrase", charCode);
 }
 
-//Checks page name, if characters page use stored code to reveal correct char info
+//Checks page name, if characters page, use stored code to reveal correct secret char info
 if (fileName.indexOf("characters.html") !== -1) {
     let charCode = window.localStorage.getItem("codePhrase");
     codeword(charCode);
@@ -233,3 +201,6 @@ function codeword(passcode) {
                 return;
     };
 };
+
+
+ 

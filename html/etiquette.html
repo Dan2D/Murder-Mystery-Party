@@ -8,43 +8,30 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styleMain.css">
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="styles/styleMain.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $("#navbar").load('navbar.html')
+        })
+    </script>
+
 </head>
 
 <body>
 
-    <div class="fixed-wrapper">
-        <div class="fixed">
-            <h1 class="Title">
-                <div>M<span class="flicker">U</span>RDER</div>&nbsp;<div>MY<span class="off">S</span>TERY</div>&nbsp;<div>PART<span
-                        class="flicker">Y</span></div>
-            </h1>
-            <nav>
-                <div>
-                    <a class="navLink" href="index.html">Home</a>
-                </div>
-                <div>
-                    <a class="navLink" href="etiquette.html">News</a>
-                </div>
-                <div>
-                    <a class="navLink" href="culture.html">Movies</a>
-                </div>
-                <div>
-                    <a class="navLink" href="characters.html">Suspects</a>
-                </div>
-            </nav>
-        </div>
+    <div id="navbar">
+        <!-- Load navbar here using jQuery -->
     </div>
-    
+
     <div class="background">
         <div class="bg"></div>
         <div class="curtains"></div>
-        <div class="screen"><img src="images/news-screen.jpg" alt=""></div>
+        <div class="screen"><img src="../images/news-screen.jpg" alt=""></div>
         <div class="seats"></div>
     </div>
 
@@ -151,15 +138,15 @@
     <!-- <div class="screen"><img src="images/movie-title.jpg" alt=""></div>
     <div class="seats"></div> -->
 
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
     </script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <script src="scripts/script2.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../scripts/script.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

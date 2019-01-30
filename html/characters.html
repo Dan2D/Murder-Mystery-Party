@@ -8,48 +8,30 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styleMain.css">
+    <link rel="stylesheet" href="../node_modules/jquery/ui/jquery-ui.min.css">
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="styles/styleMain.css">
-    <link rel="stylesheet" href="node_modules/jquery/ui/jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#navbar").load('navbar.html')
+        })
+    </script>
+
 </head>
 
 <body>
 
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-    <div class="fixed-wrapper">
-        <div class="fixed">
-            <h1 class="Title">
-                <div>M<span class="flicker">U</span>RDER</div>&nbsp;<div>MY<span class="off">S</span>TERY</div>&nbsp;<div>PART<span
-                        class="flicker">Y</span></div>
-            </h1>
-            <nav>
-                <div>
-                    <a class="navLink" href="index.html">Home</a>
-                </div>
-                <div>
-                    <a class="navLink" href="etiquette.html">News</a>
-
-                </div>
-                <div>
-                    <a class="navLink" href="culture.html">Movies</a>
-                </div>
-                <div>
-                    <a class="navLink" href="characters.html">Suspects</a>
-                </div>
-            </nav>
-        </div>
+    <div id="navbar">
+        <!-- Load navbar here using jQuery -->
     </div>
 
     <div class="background">
         <div class="bg"></div>
         <div class="curtains"></div>
-        <div class="screen"><img src="images/stranger.jpg" alt=""></div>
+        <div class="screen"><img src="../images/stranger.jpg" alt=""></div>
         <div class="seats"></div>
     </div>
 
@@ -64,7 +46,7 @@
                 <div id="victim" class="characterInfo">
                     <h3>Andrew J McCutcheon</h3>
                     <div class="vicImg">
-                        <img src="images/victim.jpg">
+                        <img src="../images/victim.jpg">
                     </div>
                     <div>
                         <ul>
@@ -87,7 +69,7 @@
                     <div class="characterInfo">
                         <h3>Matthew Montgomery</h3>
                         <div class="charImg">
-                            <img src="images/medal.png">
+                            <img src="../images/medal.png">
                         </div>
                         <ul>
                             <li>Age: 31</li>
@@ -128,7 +110,7 @@
                     <div class="characterInfo">
                         <h3>Kathleen O’Shea</h3>
                         <div class="charImg">
-                            <img src="images/note.png">
+                            <img src="../images/note.png">
                         </div>
                         <ul>
                             <li>Age: 28</li>
@@ -179,7 +161,7 @@
                     <div class="characterInfo">
                         <h3>Betty Sue Wilson </h3>
                         <div class="charImg">
-                            <img src="images/kind.png">
+                            <img src="../images/kind.png">
                         </div>
                         <ul>
                             <li>Age: 22</li>
@@ -207,7 +189,7 @@
 
                             <h3>Ramona Simpson</h3>
                             <div class="charImg">
-                                <img src="images/broken-heart.png">
+                                <img src="../images/broken-heart.png">
                             </div>
                             <ul>
                                 <li>Age: 24</li>
@@ -223,7 +205,8 @@
                                 This made your mother understandably furious and she swore she'd have her revenge on
                                 the man she once loved. Your mother cultivated her hatred of McCutcheon in you
                                 and you readily took on her cause.
-                                Your whole life has known one purpose, to take revenge upon your father that abandoned you and
+                                Your whole life has known one purpose, to take revenge upon your father that abandoned
+                                you and
                                 your family. In order to get close to Arthur you've taken on the persona of Betty Sue
                                 Wilson and have been having a somewhat discreet affair with Matthew Montgomery.
                                 Your "relationship" with Matt paid off and have recently secured employment at Superior
@@ -240,7 +223,7 @@
                     <div class="characterInfo">
                         <h3>Olaf Hendrikssen</h3>
                         <div class="charImg">
-                            <img class="double" src="images/drink.png">
+                            <img class="double" src="../images/drink.png">
                         </div>
                         <ul>
                             <li>Age: 41</li>
@@ -283,7 +266,7 @@
                                 characterInfo">
                         <h3>Wilbur Andrews</h3>
                         <div class="charImg">
-                            <img src="images/lightbulb.png">
+                            <img src="../images/lightbulb.png">
                         </div>
                         <ul>
                             <li>Age: 32</li>
@@ -339,7 +322,7 @@
                     <div class="characterInfo">
                         <h3>Irma Meyers</h3>
                         <div class="charImg">
-                            <img src="images/mirror.png">
+                            <img src="../images/mirror.png">
                         </div>
                         <ul>
                             <li>Age: 30</li>
@@ -352,22 +335,27 @@
                             <h3>Secret Character Info</h3>
                             <p>Growing up you came from a lowerclass family and at a young age had to learn to take
                                 care of yourself. Your parents made
-                                their money performing menial tasks for wealthier families, they were essentially servants. This rough life
+                                their money performing menial tasks for wealthier families, they were essentially
+                                servants. This rough life
                                 fostered a fire in you and you swore to yourself
                                 that you would never make a living doing someone elses chores. Instead you started
                                 hairdressing at a local salon and after rising up
                                 the ranks you eventually landed at Rudolpho's a famous hair salon in Hollywood that
                                 catered to only the biggest and brightest stars.
                                 Through Rudolpho's you got your foot into the film industry and started acting.
-                                It's there you met McCutcheon and started a rocky love affair. But those rose colored glasses
+                                It's there you met McCutcheon and started a rocky love affair. But those rose colored
+                                glasses
                                 broke soon after you noticed he had
                                 wandering eyes for nearly any woman that walked onto his set, especially that Betty Sue
                                 Wilson. This, coupled with the feeling that your affair
-                                was cooling down and the thought that McCutcheon might break it off soon drove you mad with Hysteria.
+                                was cooling down and the thought that McCutcheon might break it off soon drove you mad
+                                with Hysteria.
                                 <br><br>
-                                The history of your love life is a bit checkered to say the least. Several years ago you found your lover
+                                The history of your love life is a bit checkered to say the least. Several years ago
+                                you found your lover
                                 in bed with another woman and in a fit of rage
-                                murdered him in cold blood. Luckily, the The studio you were working for at the time covered up
+                                murdered him in cold blood. Luckily, the The studio you were working for at the time
+                                covered up
                                 the murder for you in an attempt to avoid any bad press.
                                 <br><br>
                                 McCutcheon seemed to take advantage of your relationship and had you fill into his
@@ -386,7 +374,7 @@
                     <div class="characterInfo">
                         <h3>Alice Chatterly</h3>
                         <div class="charImg">
-                            <img src="images/newspaper.png">
+                            <img src="../images/newspaper.png">
                         </div>
                         <ul>
                             <li>Age: 31 (Eternally...)</li>
@@ -449,14 +437,14 @@
                     <div class="characterInfo">
                         <h3>Clyde Willoughby</h3>
                         <div class="charImg">
-                            <img src="images/abacus.png">
+                            <img src="../images/abacus.png">
                         </div>
                         <ul>
                             <li>Age: 38</li>
                             <li>Sex: Male</li>
                             <li>Occupation: Adjuster for National Professional Underwriters</li>
                             <li>Hometown: New York City, NY</li>
-                            <li>Characteristics: able and Gregarious, Extroverted, Numbers Wiz, Careful and
+                            <li>Characteristics: Sociable and Gregarious, Extroverted, Numbers Wiz, Careful and
                                 Conscientious</li>
                         </ul>
                         <div class="secrets">
@@ -509,15 +497,15 @@
     </article>
 
 
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/jquery/ui/jquery-ui.min.js"></script>
+    <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery/ui/jquery-ui.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
     </script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <script src="scripts/script2.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../scripts/script.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

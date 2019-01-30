@@ -8,57 +8,33 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/styleMain.css">
+  <link rel="stylesheet" href="../node_modules/jquery/ui/jquery-ui.min.css">
+  
+  <!-- script to load navbar using jQuery -->
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="styles/styleMain.css">
-  <link rel="stylesheet" href="node_modules/jquery/ui/jquery-ui.min.css">
+  <script>
+    $(function () {
+            $("#navbar").load('navbar.html')
+        })
+    </script>
+
 </head>
 
 <body>
-  <!-- <div class="bg"></div>
-  <div class="lBorder"></div>
-  <div class="curtains"></div> -->
 
-
-  <!-- <img class="columnR" src="images/art deco pattern-8R.jpg"> -->
-  <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-
-  <!-- Add your site or application content here -->
-  <div class="fixed-wrapper">
-    <div class="fixed">
-      <h1 class="Title">
-        <div>M<span class="flicker">U</span>RDER</div>&nbsp;<div>MY<span class="off">S</span>TERY</div>&nbsp;<div>PART<span
-            class="flicker">Y</span></div>
-      </h1>
-      <nav>
-        <div>
-          <a class="navLink" href="index.html">Home</a>
-        </div>
-        <div>
-          <a class="navLink" href="etiquette.html">News</a>
-
-        </div>
-        <div>
-          <a class="navLink" href="culture.html">Movies</a>
-        </div>
-        <div>
-          <a class="navLink" href="characters.html">Suspects</a>
-        </div>
-      </nav>
-    </div>
+  <div id="navbar">
+    <!-- Load navbar here using jQuery -->
   </div>
 
-    <div class="background">
-        <div class="bg"></div>
-        <div class="curtains"></div>
-        <div class="screen"><img src="images/end screen.jpg" alt=""></div>
-        <div class="seats"></div>
-    </div>
+  <div class="background">
+    <div class="bg"></div>
+    <div class="curtains"></div>
+    <div class="screen"><img src="../images/end screen.jpg" alt=""></div>
+    <div class="seats"></div>
+  </div>
 
   <article id="artcl">
     <div>
@@ -94,43 +70,26 @@
           -Your Host </span>
       </p>
     </div>
+
+    <div class="ticket">
+      <a href="#"><img class="passcode" src="../images/bloody-ticket.png" alt=""></a></div>
+      <div id="dialog">
+        <input id="code" type="text">
+    </div>
+
   </article>
 
-  <div class="ticket">
-    <a href="#"><img class="passcode" src="images/bloody-ticket.png" alt=""></a>
-    <div id="dialog" title="passcode?">
-      <input id="code" type="text">
-    </div>
-  </div>
-<!-- 
-  <div class="background">
-    <div class="bg"></div>
-    <div class="curtains"></div>
-    <div class="screen"><img src="images/end screen.jpg" alt=""></div>
-    <div class="seats"></div>
-  </div> -->
 
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/jquery/ui/jquery-ui.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="../node_modules/jquery/ui/jquery-ui.min.js"></script>
   <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
   </script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="scripts/script2.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () {
-      ga.q.push(arguments)
-    };
-    ga.q = [];
-    ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto');
-    ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  <script src="../js/plugins.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../scripts/script.js"></script>
 </body>
 
 </html>

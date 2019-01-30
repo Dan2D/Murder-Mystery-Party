@@ -30,18 +30,24 @@
 html,body{
     width:100%;
     height:100%;
+    overflow: hidden;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     background: #0a0102;
-    overflow:hidden;
+    overflow:auto;
+}
+
+.background{
+    display:flex;
+    justify-content: center;
 }
 
 .bg, .curtains{
-    min-width:100%;
-    min-height: 100%;
+    width:100%;
+    height: 100%;
     position:fixed;
 }
 
@@ -52,9 +58,9 @@ body {
 
 .curtains{
     z-index: -1;
-    background: url(../images/curtains-1.png);
+    background: url("../images/curtains-1.png");
     background-repeat: no-repeat;
-    opacity: 0.95;
+    opacity: 0.8;
     background-size: 100% 80%;
 }
 
@@ -64,23 +70,21 @@ body {
 }
 
  .screen {
+    display: flex;
+    justify-content: space-around;
     width: 60vw;
-    min-width: 350px;
+    min-width: 300px;
     min-height: 200px;
-    max-height:450px;
+    max-height: 450px;
     height: 45vw;
     position: fixed;
     z-index: -2;
-    top: 10px;
-    left: 50vw;
-    margin-left: -29.5vw;
+    top: 30%;
     opacity: 0.8;
 }
 
 .screen>img {
-    height:100%;
-    width:100%;
-    position:fixed;
+    width: 100%;
 }
 
 .seats{
@@ -121,16 +125,12 @@ div.fixed>h1, nav, .fixed, .ticket{
     text-align:center;
 }
 
-.titlecontainer {
-    width:100%;
-    position:relative;
-}
+/* MAIN TITLE */
 
 .fixed-wrapper{
-    position:fixed;
-    height:100%;
+    z-index:1;
+    height:133px;
     width:100%;
-    z-index:2;
 }
 
 .fixed{
@@ -162,10 +162,7 @@ div.fixed>h1 div {
     display: inline-block;
 }
 
-.background{
-    position:fixed;
-    z-index:-2;
-}
+
 
 .flicker {
     animation: flicker var(--animation-time) linear infinite alternate;
@@ -177,6 +174,38 @@ h1>div>span.off{
     animation: flickoff 1s linear forwards;
     animation-delay: 0.5s; 
 }
+
+
+/* NAVIGATION BAR */
+nav {
+    border-bottom: 1px solid gold;
+    border-top: 1px solid gold;
+    position:relative;
+    bottom:-5px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+nav div{
+    display:inline;
+    padding: 0 8%;
+}
+
+nav>div>a, nav>div>div>a {
+    color: rgb(255, 253, 117);
+    font-size: 20px;
+    text-shadow: none;
+    opacity:0.4;
+    font-weight: bold;
+}
+
+nav>div>a:hover, nav>div>div>a:hover,  div.guideLinks ul>li>a:hover {
+    text-shadow: 1px 1px 10px currentColor, -1px -1px 10px currentColor;
+    opacity:1;
+}
+
+
+/* ANIMATIONS */
 
 @keyframes flickon {
     20%, 31%, 36%, 45%, 100%  {
@@ -210,48 +239,26 @@ h1>div>span.off{
         opacity: 0.3;
     }
 }
+/* ANIMATIONS */
 
-
-nav {
-    border-bottom: 1px solid gold;
-    border-top: 1px solid gold;
-    position:relative;
-    bottom:-5px;
+article, article.news{
+    order:2;
+    z-index: 0;
+    height: calc(100% - 133px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-nav div{
-    display:inline;
-    padding: 0 8%;
-}
-
-nav>div>a, nav>div>div>a {
-    color: rgb(255, 253, 117);
-    text-shadow: none;
-    opacity:0.4;
-    font-weight: bold;
-}
-
-nav>div>a:hover, nav>div>div>a:hover, ul.guideLinks>li>a:hover {
-    text-shadow: 1px 1px 10px currentColor, -1px -1px 10px currentColor;
-    opacity:1;
-}
-
-div.nobreak{
-    display:inline;
-    white-space:nowrap;
-}
-
-article, .guideLinks>li>a {
-    margin-top: 100px;
-    font-size: 20px;
+article, div.guideLinks>div>ul>li>a {
     font-weight:bold;
     color: white;
     text-decoration: none;
-    order:2;
-    z-index: 0;
+    font-size: 25px;
+
 }
 
-#artcl>div {
+
+#artcl>div, div.guideLinks {
     padding-top: 50px;
 }
 
@@ -259,28 +266,46 @@ p>span {
     font-style: italic;
 }
 
-div.ettiquette, #artcl>div{
+div.ettiquette, #artcl>div, div.guideLinks{
     display:flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
-div.ettiquette>p, #artcl>div>p {
-    width:70%;
+div.ettiquette>p, #artcl>div>p, div.guideLinks>div {
+    max-width:70%;
     font-weight:bold;
     border: 25px solid;
     border-image: url(../images/deco-frame.png) 100 round;
     background: rgba(0,0,0,0.3);
+    display:inline-block;
 }
+
+
 
 div.rules{
     padding: 5px 25px;
 }
 
-div.rules li {
-    margin: 10px;
+div.rules ul {
+    padding-left: 10px;
 }
+
+div.rules li {
+    margin: 20px 10px;
+    padding-right: 20px;
+}
+
+div.rules>h3 {
+    font-size: 35px;
+}
+
 ul, ol, div.characterInfo {
     width:100%;
+}
+
+div.characterInfo>ul li {
+    padding-right: 30%;
 }
 
 h2, h3 {
@@ -294,11 +319,11 @@ h2, h3 {
     height:150px;
 }
 
-.guideLinks{
+div.guideLinks>div{
     padding:5px 10px;
 }
 
-.guideLinks>li>a:hover{
+div.guideLinks li>a:hover{
     font-family:core deco;
     font-weight:bolder;
 }
@@ -327,8 +352,11 @@ div.vicImg>img{
 ul>div.characterInfo>h3, ol>li>div.characterInfo>h3 {
     width:50%;
 }
+ul#victim{
+    padding-left: 10px;
+}
 
-ul{
+div#victim{
     padding-left:0;
 }
 
@@ -353,6 +381,21 @@ div.title2>h2, div.title1>h2 {
     font-size: 50px;
     display:block;
     text-align:center;
+}
+
+div.guideLinks div div.title1 h2 {
+    margin: 0;
+}
+
+.ticketGlow{
+    height: 115px;
+    width: 200px;
+    z-index: -2;
+    position: inline;
+    display: inline;
+    /* position: absolute; */
+    text-shadow: 1px 1px 10px gold;
+    background: white;
 }
 
 .ticket {
@@ -386,14 +429,19 @@ border-bottom: 2px solid gold;
 }
 
 
-@media all and (max-width: 750px){
+@media all and (max-width: 768px){
+
+    div.fixed>h1{
+        font-size:45px;
+        margin: 5px
+    }
+
     #artcl{
-        margin-top: 250px;
         z-index:0;
     }
 
     .title1{
-        margin-top: 150px;
+        margin-top: 50px;
     }
 
     div.vicImg, div.charImg{
@@ -403,16 +451,48 @@ border-bottom: 2px solid gold;
         display:block;
     }
 
-    .screen, .screen>img{
-        top: calc(350px - 10vw);
-        left: 50%;
-        margin-left: -30vw;
-        min-width: 200px;
-        min-height: 150px;
-        height: 45vw;
-        width: 60vw;
+    div.characterInfo ul li{
+        font-size:20px;
+        margin: 5px 15px 5px 0;
     }
 
+    div.guideLinks .title1 {
+        margin-top: -20px;
+    }
+
+    nav>div {
+        display:inline-block;
+        padding:15px;
+    }
+
+    nav>div>a, nav>div>div>a {
+        font-size: 20px;
+    }
+
+    article{
+        font-size: 20px;
+        padding: 0 5px;
+    }
+    
+    div.rules li{
+        margin: 10px 10px 10px -15px;
+        width: 98%;
+    }
+
+    div.title1>h2, div.title2>h2{
+        margin-top: 10px;
+        font-size: 40px;
+        height: auto;
+    }
+
+    div.guideLinks>div>ul>li>a, div.etiquette>p {
+        font-size: 20px;
+    }
+
+    div.guideLinks li {
+        margin-left: -20px;
+    }
+    
     .seats{
         background-image: url("../images/theater-seats.png");
         width:100%;
@@ -428,4 +508,89 @@ border-bottom: 2px solid gold;
         position:relative;
     }
 
+}
+
+@media only screen and (max-width: 600px) {
+    html, body {
+        max-width:100%;
+    }
+
+    div.fixed {
+        max-width: 100%;
+        position:fixed;
+    }
+
+    div.fixed>h1{
+        font-size:35px;
+        margin: 5px 5px 5px 8px;
+    }
+
+    nav>div {
+        display:inline-block;
+        padding:15px;
+    }
+
+    nav>div>a, nav>div>div>a {
+        font-size: 15px;
+    }
+
+    article{
+        font-size: 15px;
+        padding: 0 5px;
+    }
+
+    div.vicImg>img{
+        height:150px;
+        width:150px;
+    }
+
+    div.victim ul{
+        padding-right:20px;
+    }
+
+    div.charImg>img{
+        height: 100px;
+        width: 100px;
+    }
+
+    div.characterInfo ul, div.characterInfo ul li{
+        width:80vw;
+        margin-left: -20px;
+        padding-right: 10px;
+        font-size:15px;
+    }
+    
+    div.secrets{
+        max-width:100%;
+    }
+    
+    div.rules li{
+        width: 95%;
+        font-size: 15px;
+    }
+
+    div.title1>h2, div.title2>h2{
+        margin-top: 10px;
+        font-size: 30px;
+        height: auto;
+    }
+
+    div.guideLinks ul {
+        margin-top: 5px;
+    }
+
+    div.guideLinks>div>ul>li>a {
+        font-size:15px;
+    }
+
+    div.guideLinks li {
+        margin-left: -20px;
+    }
+
+    .bg, .curtains, .seats {
+        width: 100%;
+    }
+    .screen {
+        top: calc(200px + 10vh);
+    } 
 }
