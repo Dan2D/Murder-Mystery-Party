@@ -13,6 +13,17 @@
     src: url(../fonts/Core\ Deco.ttf)format('truetype');
 }
 
+
+::-webkit-scrollbar{
+    width:20px;
+}
+
+::-webkit-scrollbar-thumb{
+    width:20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
 #dialog>input {
     font-family: core deco;
     background: rgba(0, 0, 0, 0.7);

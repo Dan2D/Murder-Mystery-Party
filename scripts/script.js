@@ -24,7 +24,9 @@ function Character(name, age, sex, occ, hTown, chars) {
                 var charTitle = "Ms.";
             }
             const titlePrmpt = document.getElementById("charIntro");
-            titlePrmpt.setAttribute('title', (`Good Evening ` + `${charTitle}` + this.name.split(' ')[1]));
+            let name = this.name.split(' ');
+            name = name.slice(1).join(' ');
+            titlePrmpt.setAttribute('title', (`Good Evening ` + `${charTitle}` + name));
             $("#charIntro").dialog({
                 modal: true,
                 show: "clip",
@@ -37,10 +39,13 @@ function Character(name, age, sex, occ, hTown, chars) {
 var mMontgomery = new Character('Matthew Montgomery', 31, 'Male', 'Actor',
     'Hollywood, Ca', 'Handsome, Sophisticated, Confident, Aloof, Mysterious');
 
+var tDewit = new Character('Thomas Dewit', 46, 'Male', 'Head of Acme Studios',
+ 'Los Angeles, CA', 'Reserved, Professional, Confident');
+
 var kOshea = new Character('Kathleen O\'shea', 28, 'Female', 'Actress',
     'New York City, NY', 'Prima Donna, Prideful, Strong desire to perform');
 
-var bSuWilson = new Character('Betty Sue Wilson', 22, 'Female', 'Actress',
+var bSuWilson = new Character('Betty-Sue Wilson', 22, 'Female', 'Actress',
     'Sibley, Iowa', 'Down to Earth, Loving, Humble, Hardworking');
 
 var rSimpson = new Character('Ramona Simpson', 24, 'Female', 'Actress',
@@ -49,6 +54,8 @@ var rSimpson = new Character('Ramona Simpson', 24, 'Female', 'Actress',
 var oHendrikssen = new Character('Olaf Hendrikssen', 41, 'Male', 'Director',
     'Copenhagen, Denmark', 'Work is his Passion, Attractive, Artistic, Excessive drinking and gambling habits');
 
+var lSwallow = new Character('Lucy Swallow', 26, 'Female', 'Receptionist', 
+    'Boise, ID','Driven, Likes to have Fun, Bit of a Slut, Spoiled' );
 
 var wAndrews = new Character('Wilbur Andrews', 32, 'Male', 'Inventor',
     'Philadelphia, PA', 'Introverted, Especially shy with women, Thinker');
@@ -62,6 +69,8 @@ var aChatterly = new Character('Alice Chatterly', 30 + ' (Eternally...)', 'Colum
 var cWilloughby = new Character('Clyde Willoughby', 38, 'Male', 'Adjuster for National Professional Underwriters',
     'New York City, NY', 'Sociable and Gregarious, Extroverted, Numbers Wiz, Careful and Conscientious');
 
+var gRicci = new Character('Gianna Del Ricci', 25, 'Female', 'Medium',
+    'Long Island, NJ', 'Expressive, Proud, Looking to Prove Something, New Jersey Classy');
 
 //Sets random timing for Header Title Letters
 function setProperty(duration) {
@@ -170,43 +179,58 @@ function codeword(passcode) {
             mMontgomery.hello();
             break;
 
-        case "scarlet songbird":
+        case "dope fiend":
             secretTxt[1].style["display"] = "block";
+            tDewit.hello();
+            break;
+
+        case "scarlet songbird":
+            secretTxt[2].style["display"] = "block";
             kOshea.hello();
             break;
 
         case "double agent":
-            secretTxt[2].style["display"] = "block";
+            secretTxt[3].style["display"] = "block";
             bSuWilson.hello();
             break;
 
         case "akvavit":
-            secretTxt[3].style["display"] = "block";
+            secretTxt[4].style["display"] = "block";
             oHendrikssen.hello();
             break;
 
+        case "sheba worker":
+            secretTxt[5].style["display"] = "block";
+            lSwallow.hello();
+            break;
+
         case "cancelled stamp":
-            secretTxt[4].style["display"] = "block";
+            secretTxt[6].style["display"] = "block";
             wAndrews.hello();
             break;
 
         case "fatal attraction":
-            secretTxt[5].style["display"] = "block";
+            secretTxt[7].style["display"] = "block";
             iMeyers.hello();
             break;
 
         case "clothesline":
-            secretTxt[6].style["display"] = "block";
+            secretTxt[8].style["display"] = "block";
             aChatterly.hello();
             break;
 
         case "heavy sugar":
-            secretTxt[7].style["display"] = "block";
+            secretTxt[9].style["display"] = "block";
             cWilloughby.hello();
             break;
 
-            defualt:
-                return;
+        case "heebie jeebies":
+            secretTxt[10].style["display"] = "block";
+            gRicci.hello();
+            break;
+
+        defualt:
+            return;
     };
 };
 
