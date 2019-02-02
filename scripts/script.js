@@ -5,7 +5,6 @@ var fileName = location.href.split("/").slice(-1);
 const codeName = document.querySelector("div.mail>a>img");
 const secretTxt = document.getElementsByClassName('secrets');
 const screen = document.querySelector("div.screen>img");
-var shake = 1;
 var z = 0;
 
 
@@ -40,7 +39,7 @@ var mMontgomery = new Character('Matthew Montgomery', 31, 'Male', 'Actor',
     'Hollywood, Ca', 'Handsome, Sophisticated, Confident, Aloof, Mysterious');
 
 var tDewit = new Character('Thomas Dewit', 46, 'Male', 'Head of Acme Studios',
- 'Los Angeles, CA', 'Reserved, Professional, Confident');
+    'Los Angeles, CA', 'Reserved, Professional, Confident');
 
 var kOshea = new Character('Kathleen O\'shea', 28, 'Female', 'Actress',
     'New York City, NY', 'Prima Donna, Prideful, Strong desire to perform');
@@ -54,8 +53,8 @@ var rSimpson = new Character('Ramona Simpson', 24, 'Female', 'Actress',
 var oHendrikssen = new Character('Olaf Hendrikssen', 41, 'Male', 'Director',
     'Copenhagen, Denmark', 'Work is his Passion, Attractive, Artistic, Excessive drinking and gambling habits');
 
-var lSwallow = new Character('Lucy Swallow', 26, 'Female', 'Receptionist', 
-    'Boise, ID','Driven, Likes to have Fun, Bit of a Slut, Spoiled' );
+var lSwallows = new Character('Lucy Swallows', 26, 'Female', 'Receptionist',
+    'Boise, ID', 'Driven, Fun-loving, Promiscuous, Spoiled');
 
 var wAndrews = new Character('Wilbur Andrews', 32, 'Male', 'Inventor',
     'Philadelphia, PA', 'Introverted, Especially shy with women, Thinker');
@@ -84,9 +83,6 @@ function changeAnimationTime() {
 }
 
 setInterval(function () {
-    // if (shake === 1 && fileName.indexOf('index.html') !== -1) {
-    //     ticketShake();
-    // }
     if (fileName.indexOf("culture.html") !== -1) {
         z++
         if (z > 7) {
@@ -96,19 +92,6 @@ setInterval(function () {
     }
     changeAnimationTime();
 }, 3000);
-
-// function ticketShake() {
-//     $("article").on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
-//         $(".passcode").finish(true, true);
-//     });
-
-//     $(".passcode").delay(3000).effect("shake", {
-//         direction: "down",
-//         times: 3,
-//         distance: 5
-//     });
-// };
-
 
 (function screenFlicker() {
     $(".screen>img").animate({
@@ -122,14 +105,14 @@ setInterval(function () {
 function movieSwitch() {
     let screenbg = document.querySelector(".screen");
     $(".screen>img").delay(100).fadeIn(200, function () {
-        $(this).attr("src", "../images/movie-title" + z + ".jpg")
+        $(this).attr("src", "../images/movieScreens/movie-title" + z + ".jpg")
     });
 };
 
 //Secret Code Prompt on index page when the ticket is clicked
 $(document).ready(function () {
     $(".passcode").click(function () {
-       
+
         $("#dialog").dialog({
             modal: true,
             title: `passcode?`,
@@ -137,15 +120,13 @@ $(document).ready(function () {
             height: 'auto',
             show: "clip",
             hide: "clip"
-        }, function(){
+        }, function () {
             $(this).css('height', 500 + 'px');
         });
 
     });
 
-    // NEED TO FIX TITLE POSITIONING WHEN SAYING HELLO MR/MRS
-
-    //records user input when enter is pressed and redirects you to suspects page
+//records user input when enter is pressed and redirects you to suspects page
     $("#dialog>input").keypress(function (e) {
         if (e.keyCode === 13) {
             let charCode = $("#dialog>input").val();
@@ -229,10 +210,7 @@ function codeword(passcode) {
             gRicci.hello();
             break;
 
-        defualt:
-            return;
+            defualt:
+                return;
     };
 };
-
-
- 

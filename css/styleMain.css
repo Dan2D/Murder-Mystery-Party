@@ -45,8 +45,6 @@ html,body{
 }
 
 body {
-    /* display: flex;
-    flex-direction: column; */
     background: #0a0102;
     overflow:auto;
 }
@@ -69,14 +67,14 @@ body {
 
 .curtains{
     z-index: -1;
-    background: url("../images/curtains-1.png");
+    background: url("../images/bg/curtains-1.png");
     background-repeat: no-repeat;
     opacity: 0.8;
     background-size: 100% 80%;
 }
 
 .screen{
-    background: url("../images/old\ screen.jpg");
+    background: url("../images/movieScreens/old\ screen.jpg");
     background-size: 100% 100%;
 }
 
@@ -99,7 +97,7 @@ body {
 }
 
 .seats{
-    background-image: url("../images/theater-seats.png");
+    background-image: url("../images/bg/theater-seats.png");
     background-size: 40% 100%;
     width:100%;
     opacity:0.5;
@@ -137,7 +135,6 @@ div.fixed>h1, nav, .fixed, .ticket{
 }
 
 /* MAIN TITLE */
-
 .fixed-wrapper{
     z-index:1;
     height:133px;
@@ -148,7 +145,7 @@ div.fixed>h1, nav, .fixed, .ticket{
     position:fixed;
     top:0;
     padding-bottom: 5px;
-    background: url("../images/art\ deco\ pattern-6.jpg") repeat fixed center;
+    background: url("../images/bg/art\ deco\ pattern-6.jpg") repeat fixed center;
     background-size:300px 300px;
     background-position:left top;
     z-index:1;
@@ -217,7 +214,6 @@ nav>div>a:hover, nav>div>div>a:hover,  div.guideLinks ul>li>a:hover {
 
 
 /* ANIMATIONS */
-
 @keyframes flickon {
     20%, 31%, 36%, 45%, 100%  {
         opacity: 1;
@@ -252,6 +248,7 @@ nav>div>a:hover, nav>div>div>a:hover,  div.guideLinks ul>li>a:hover {
 }
 /* ANIMATIONS */
 
+/* BODY */
 article, article.news{
     order:2;
     z-index: 0;
@@ -287,12 +284,10 @@ div.ettiquette>p, #artcl>div>p, div.guideLinks>div {
     max-width:70%;
     font-weight:bold;
     border: 25px solid;
-    border-image: url(../images/deco-frame.png) 100 round;
+    border-image: url(../images/ui/deco-frame.png) 100 round;
     background: rgba(0,0,0,0.3);
     display:inline-block;
 }
-
-
 
 div.rules{
     padding: 5px 25px;
@@ -398,17 +393,6 @@ div.guideLinks div div.title1 h2 {
     margin: 0;
 }
 
-.ticketGlow{
-    height: 115px;
-    width: 200px;
-    z-index: -2;
-    position: inline;
-    display: inline;
-    /* position: absolute; */
-    text-shadow: 1px 1px 10px gold;
-    background: white;
-}
-
 .ticket {
     padding: 50px;
     order:3;
@@ -435,11 +419,11 @@ border-bottom: 2px solid gold;
     color: gold;
     margin: 35px 30px 0 -15px;
     border: 20px solid;
-    border-image: url(../images/deco-frame.png) 100 round;
+    border-image: url(../images/ui/deco-frame.png) 100 round;
     background: rgba(0,0,0,0.3);
 }
 
-
+/* Tablet CSS */
 @media all and (max-width: 768px){
 
     div.fixed>h1{
@@ -505,7 +489,6 @@ border-bottom: 2px solid gold;
     }
     
     .seats{
-        background-image: url("../images/theater-seats.png");
         width:100%;
         display:block;
         position:fixed;
@@ -520,7 +503,7 @@ border-bottom: 2px solid gold;
     }
 
 }
-
+/* MOBILE CSS */
 @media only screen and (max-width: 600px) {
     html, body {
         max-width:100%;

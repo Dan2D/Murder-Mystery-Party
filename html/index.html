@@ -2,22 +2,20 @@
 <html class="no-js" lang="">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/styleMain.css">
-  <link rel="stylesheet" href="../node_modules/jquery/ui/jquery-ui.min.css">
-  
-  <!-- script to load navbar using jQuery -->
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styleMain.css">
+    <link rel="stylesheet" href="../node_modules/jquery/ui/jquery-ui.min.css">
 
-  <script>
-    $(function () {
-            $("#navbar").load('./navbar.html')
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#navbar").load('navbar.html')
         })
     </script>
 
@@ -32,7 +30,7 @@
   <div class="background">
     <div class="bg"></div>
     <div class="curtains"></div>
-    <div class="screen"><img src="../images/end screen.jpg" alt=""></div>
+    <div class="screen"><img src="../images/movieScreens/end screen.jpg" alt=""></div>
     <div class="seats"></div>
   </div>
 
@@ -72,7 +70,7 @@
     </div>
 
     <div class="ticket">
-      <a href="#"><img class="passcode" src="../images/bloody-ticket.png" alt=""></a></div>
+      <a href="#"><img class="passcode" src="../images/ui/bloody-ticket.png" alt=""></a></div>
       <div id="dialog">
         <input id="code" type="text">
     </div>
@@ -80,12 +78,11 @@
   </article>
 
 
-
-  <!-- Scripts -->
   <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/jquery/ui/jquery-ui.min.js"></script>
   <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
+      window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
   </script>
   <script src="../js/plugins.js"></script>
   <script src="../js/main.js"></script>

@@ -2,7 +2,8 @@
 if( fileName.indexOf("index.html") === -1){
     document.querySelector(".Title").style["animation"] = "none";
 }
-    //Flicker Animation for Nav links
+
+//Flicker Animation for Nav links
     (function () {
     for(i=0; i < navLnk.length; i++){
          if (navLnk[i].pathname.indexOf(fileName) !== -1) {
